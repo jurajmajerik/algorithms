@@ -44,6 +44,39 @@ document.addEventListener("DOMContentLoaded", function(event) {
     titlecaseOutput.innerHTML = result;
   });
 
+  // Sum All Odd Fibonacci Numbers
+  let fibonacciButton = document.getElementById("fibonacci-button");
+  fibonacciButton.addEventListener('click', function() {
+    let fibonacciTo = document.getElementById("fibonacci-to").value;
+    let fibonacciOutput1 = document.getElementById("fibonacci-output-1");
+    let fibonacciOutput2 = document.getElementById("fibonacci-output-2");
+    let fibonacciOutput1Label = document.getElementById("fibonacci-output-1-label");
+    let fibonacciOutput2Label = document.getElementById("fibonacci-output-2-label");
+
+    let myArr = [1, 1];
+    // Determine all fibonacci numbers in the range
+    do {
+      myArr.push(myArr[myArr.length - 1] + myArr[myArr.length - 2]);
+    } while (myArr[myArr.length - 1] <= fibonacciTo);
+
+    if (myArr[myArr.length - 1] > fibonacciTo) {
+      myArr.pop();
+    }
+    // Get the odd fibonaccis
+    let oddNumbers = [];
+    for (var i = 0; i < myArr.length; i++) {
+      if (myArr[i] % 2 != 0) {
+        oddNumbers.push(myArr[i]);
+      }
+    }
+    fibonacciOutput1Label.className = "label-display";
+    fibonacciOutput1.innerHTML = oddNumbers;
+    // Sum
+    let result = oddNumbers.reduce(function(a, b) { return a + b });
+    fibonacciOutput2Label.className = "label-display";
+    fibonacciOutput2.innerHTML = result;
+  });
+
 
 
 
