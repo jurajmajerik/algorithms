@@ -1,0 +1,117 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-image: url("#.png");
+  opacity: ;
+  margin-top: 20px;
+}
+
+h2 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.navbar {
+  background: rgba(252,252,252,1);
+}
+
+.test-2 {
+  text-align: center;
+}
+
+.navbar-custom {
+  padding: 0px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.area {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .area-left {
+    padding-left: 0px;
+    padding-right: 10px;
+  }
+
+  .area-right {
+    padding-left: 10px;
+    padding-right: 0px;
+  }
+}
+
+@media (max-width: 575.99px) {
+  .navbar-custom {
+    margin-top: 0px;
+  }
+
+  /*.container-full-width {
+    margin-left: 15px;
+    margin-right: 15px;
+  }*/
+
+  /*.container {
+    margin-left: 15px;
+    margin-right: 15px;
+  }*/
+}
+
+.test {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+
+.gradient {
+  background: rgba(252,252,252,1);
+  /*background: -moz-linear-gradient(top, rgba(252,252,252,1) 0%, rgba(255,255,255,1) 53%, rgba(255,255,255,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(252,252,252,1)), color-stop(53%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
+  background: -webkit-linear-gradient(top, rgba(252,252,252,1) 0%, rgba(255,255,255,1) 53%, rgba(255,255,255,1) 100%);
+  background: -o-linear-gradient(top, rgba(252,252,252,1) 0%, rgba(255,255,255,1) 53%, rgba(255,255,255,1) 100%);
+  background: -ms-linear-gradient(top, rgba(252,252,252,1) 0%, rgba(255,255,255,1) 53%, rgba(255,255,255,1) 100%);
+  background: linear-gradient(to bottom, rgba(252,252,252,1) 0%, rgba(255,255,255,1) 53%, rgba(255,255,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ffffff', GradientType=0 );*/
+}
+
+#my-projects {
+  padding-top: 78px;
+  margin-top: -78px;
+}
+
+.img-pad {
+  padding: 10px;
+}
+
+.p-box {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.portfolio-item {
+  transition: all .2s ease-in-out;
+}
+
+.portfolio-item:hover {
+  transform: scale(1.017);
+}
+
+.foot {
+  background: rgba(252,252,252,1);
+  margin-bottom: 20px;
+}
+
+.user-input {
+  width: 100%;
+}
+
+.user-button {
+  width: 40%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.user-output {
+  font-size: 20px;
+  color: dodgerblue;
+}
