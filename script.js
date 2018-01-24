@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
     // Get the odd fibonaccis
     let oddNumbers = [];
-    for (var i = 0; i < myArr.length; i++) {
+    for (let i = 0; i < myArr.length; i++) {
       if (myArr[i] % 2 != 0) {
         oddNumbers.push(myArr[i]);
       }
@@ -77,6 +77,31 @@ document.addEventListener("DOMContentLoaded", function(event) {
     fibonacciOutput2.innerHTML = result;
   });
 
+  // Search and Replace
+  let replaceButton = document.getElementById("replace-button");
+  replaceButton.addEventListener('click', function() {
+    let replaceInput1 = document.getElementById("replace-input-1").value;
+    let replaceInput2 = document.getElementById("replace-input-2").value;
+    let replaceInput3 = document.getElementById("replace-input-3").value;
+    let replaceOutput = document.getElementById("replace-output");
+    let myArr = replaceInput1.split(" ");
+    for (let i = 0; i < myArr.length; i++) {
+      if (myArr[i] === replaceInput2) {
+        if (myArr[i][0] === myArr[i][0].toUpperCase()) {
+          let wordLower = replaceInput3;
+          let wordUpper = wordLower[0].toUpperCase();
+          for (let i = 1; i < wordLower.length; i++) {
+            wordUpper += wordLower[i];
+          }
+          myArr.splice(myArr.indexOf(myArr[i]), 1, wordUpper);
+        } else {
+          myArr.splice(myArr.indexOf(myArr[i]), 1, replaceInput3);
+        }
+      }
+    }
+    result = myArr.join(" ");
+    replaceOutput.innerHTML = result;
+  });
 
 
 
