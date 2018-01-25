@@ -1,13 +1,23 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
+  var elements = {};
+
+  // Store element id's as object properties
+  function storeElements(itemNamesArray, elementIdsArray) {
+    for (let i = 0; i < itemNamesArray.length; i++) {
+      elements[itemNamesArray[i]] = elementIdsArray[i];
+    }
+  }
+
+  // Retrieve element property
+  function createVariable() {}
+
   // BUTTONS: TREAT ENTER AS A CLICK
   function buttonEnter(inputId, buttonId) {
-    // Get the input field
     let input = document.getElementById(inputId);
     input.addEventListener("keyup", function(event) {
       event.preventDefault();
       if (event.keyCode === 13) {
-        // Trigger the button element with a click
         document.getElementById(buttonId).click();
       }
     });
@@ -21,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     let longestWordOutput = document.getElementById("longest-word-output");
     let arr = longestWordInput.split(" ");
     let winner = arr[0];
-    for ( let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
       if (arr[i].length > winner.length) {
         winner = arr[i];
       }
@@ -89,7 +99,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
     fibonacciOutput1Label.className = "label-display";
     fibonacciOutput1.innerHTML = oddNumbers.join(", ");
     // Sum
-    let result = oddNumbers.reduce(function(a, b) { return a + b });
+    let result = oddNumbers.reduce(function(a, b) {
+      return a + b
+    });
     fibonacciOutput2Label.className = "label-display";
     fibonacciOutput2.innerHTML = result;
   });
@@ -159,7 +171,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
     primesOutput1Label.className = "label-display";
     primesOutput1.innerHTML = primes.join(", ");
     // Sum
-    let result = (primes.reduce(function(a, b) { return a + b }));
+    let result = (primes.reduce(function(a, b) {
+      return a + b
+    }));
     primesOutput2Label.className = "label-display";
     primesOutput2.innerHTML = result;
   });
