@@ -1,5 +1,20 @@
 document.addEventListener("DOMContentLoaded", function(event) {
+
+  // BUTTONS: TREAT ENTER AS A CLICK
+  function buttonEnter(inputId, buttonId) {
+    // Get the input field
+    let input = document.getElementById(inputId);
+    input.addEventListener("keyup", function(event) {
+      event.preventDefault();
+      if (event.keyCode === 13) {
+        // Trigger the button element with a click
+        document.getElementById(buttonId).click();
+      }
+    });
+  }
+
   // Find the Longest Word in a String
+  buttonEnter("longest-word-input", "longest-word-button");
   let longestWordButton = document.getElementById("longest-word-button");
   longestWordButton.addEventListener('click', function() {
     let longestWordInput = document.getElementById("longest-word-input").value;
@@ -15,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 
   // Title Case a Sentence
+  buttonEnter("titlecase-input", "titlecase-button");
   let titlecaseButton = document.getElementById("titlecase-button");
   titlecaseButton.addEventListener('click', function() {
     let titlecaseInput = document.getElementById("titlecase-input").value;
@@ -45,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 
   // Sum All Odd Fibonacci Numbers
+  buttonEnter("fibonacci-to", "fibonacci-button");
   let fibonacciButton = document.getElementById("fibonacci-button");
   fibonacciButton.addEventListener('click', function() {
     let fibonacciTo = document.getElementById("fibonacci-to").value;
@@ -70,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       }
     }
     fibonacciOutput1Label.className = "label-display";
-    fibonacciOutput1.innerHTML = oddNumbers;
+    fibonacciOutput1.innerHTML = oddNumbers.join(", ");
     // Sum
     let result = oddNumbers.reduce(function(a, b) { return a + b });
     fibonacciOutput2Label.className = "label-display";
@@ -78,6 +95,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 
   // Search and Replace
+  buttonEnter("replace-input-3", "replace-button");
   let replaceButton = document.getElementById("replace-button");
   replaceButton.addEventListener('click', function() {
     let replaceInput1 = document.getElementById("replace-input-1").value;
@@ -103,6 +121,47 @@ document.addEventListener("DOMContentLoaded", function(event) {
     replaceOutput.innerHTML = result;
   });
 
+  // Sum All Primes
+  buttonEnter("primes-to", "primes-button");
+  let primesButton = document.getElementById("primes-button");
+  primesButton.addEventListener('click', function() {
+    let primesTo = document.getElementById("primes-to").value;
+    let primesOutput1 = document.getElementById("primes-output-1");
+    let primesOutput2 = document.getElementById("primes-output-2");
+    let primesOutput1Label = document.getElementById("primes-output-1-label");
+    let primesOutput2Label = document.getElementById("primes-output-2-label");
 
+    let allNums = [1, 2];
+    let primes = [2];
+    let current = 2;
+    let isPrime = true;
+
+    while (allNums[allNums.length - 1] < primesTo) {
+      current += 1;
+      allNums.push(current);
+      // Try to divide current by each member of allNums
+      for (var i = 0; i < allNums.length; i++) {
+        // Skip 1 and current
+        if (allNums[i] != 1 && allNums[i] != current) {
+          // Check if divisible without remainder
+          if (current % allNums[i] === 0) {
+            isPrime = false;
+            break;
+          }
+        }
+      }
+      if (isPrime === true) {
+        primes.push(current);
+      }
+      isPrime = true;
+    }
+
+    primesOutput1Label.className = "label-display";
+    primesOutput1.innerHTML = primes.join(", ");
+    // Sum
+    let result = (primes.reduce(function(a, b) { return a + b }));
+    primesOutput2Label.className = "label-display";
+    primesOutput2.innerHTML = result;
+  });
 
 });

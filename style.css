@@ -27,6 +27,8 @@ h2 {
 .area {
   padding: 20px;
   margin-bottom: 10px;
+  height: 96%;
+
 }
 
 @media (min-width: 768px) {
@@ -125,4 +127,8 @@ h2 {
 }
 .label-display {
   display: block;
+}
+
+.num-container {
+  word-wrap: break-word;
 }
