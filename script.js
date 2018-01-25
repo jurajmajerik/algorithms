@@ -1,17 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
-  var elements = {};
-
-  // Store element id's as object properties
-  function storeElements(itemNamesArray, elementIdsArray) {
-    for (let i = 0; i < itemNamesArray.length; i++) {
-      elements[itemNamesArray[i]] = elementIdsArray[i];
-    }
-  }
-
-  // Retrieve element property
-  function createVariable() {}
-
   // BUTTONS: TREAT ENTER AS A CLICK
   function buttonEnter(inputId, buttonId) {
     let input = document.getElementById(inputId);
