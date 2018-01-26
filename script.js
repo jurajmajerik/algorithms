@@ -13,10 +13,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   // Find the Longest Word in a String
   buttonEnter("longest-word-input", "longest-word-button");
-  let longestWordButton = document.getElementById("longest-word-button");
+  const longestWordButton = document.getElementById("longest-word-button");
   longestWordButton.addEventListener('click', function() {
-    let longestWordInput = document.getElementById("longest-word-input").value;
-    let longestWordOutput = document.getElementById("longest-word-output");
+    const longestWordInput = document.getElementById("longest-word-input").value;
+    const longestWordOutput = document.getElementById("longest-word-output");
     let arr = longestWordInput.split(" ");
     let winner = arr[0];
     for (let i = 0; i < arr.length; i++) {
@@ -29,10 +29,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   // Title Case a Sentence
   buttonEnter("titlecase-input", "titlecase-button");
-  let titlecaseButton = document.getElementById("titlecase-button");
+  const titlecaseButton = document.getElementById("titlecase-button");
   titlecaseButton.addEventListener('click', function() {
-    let titlecaseInput = document.getElementById("titlecase-input").value;
-    let titlecaseOutput = document.getElementById("titlecase-output");
+    const titlecaseInput = document.getElementById("titlecase-input").value;
+    const titlecaseOutput = document.getElementById("titlecase-output");
     let result = "";
     // Split str into array of words
     let myArr = titlecaseInput.split(" ");
@@ -60,13 +60,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   // Sum All Odd Fibonacci Numbers
   buttonEnter("fibonacci-to", "fibonacci-button");
-  let fibonacciButton = document.getElementById("fibonacci-button");
+  const fibonacciButton = document.getElementById("fibonacci-button");
   fibonacciButton.addEventListener('click', function() {
-    let fibonacciTo = document.getElementById("fibonacci-to").value;
-    let fibonacciOutput1 = document.getElementById("fibonacci-output-1");
-    let fibonacciOutput2 = document.getElementById("fibonacci-output-2");
-    let fibonacciOutput1Label = document.getElementById("fibonacci-output-1-label");
-    let fibonacciOutput2Label = document.getElementById("fibonacci-output-2-label");
+    const fibonacciTo = document.getElementById("fibonacci-to").value;
+    const fibonacciOutput1 = document.getElementById("fibonacci-output-1");
+    const fibonacciOutput2 = document.getElementById("fibonacci-output-2");
+    const fibonacciOutput1Label = document.getElementById("fibonacci-output-1-label");
+    const fibonacciOutput2Label = document.getElementById("fibonacci-output-2-label");
 
     let myArr = [1, 1];
     // Determine all fibonacci numbers in the range
@@ -96,12 +96,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   // Search and Replace
   buttonEnter("replace-input-3", "replace-button");
-  let replaceButton = document.getElementById("replace-button");
+  const replaceButton = document.getElementById("replace-button");
   replaceButton.addEventListener('click', function() {
-    let replaceInput1 = document.getElementById("replace-input-1").value;
-    let replaceInput2 = document.getElementById("replace-input-2").value;
-    let replaceInput3 = document.getElementById("replace-input-3").value;
-    let replaceOutput = document.getElementById("replace-output");
+    const replaceInput1 = document.getElementById("replace-input-1").value;
+    const replaceInput2 = document.getElementById("replace-input-2").value;
+    const replaceInput3 = document.getElementById("replace-input-3").value;
+    const replaceOutput = document.getElementById("replace-output");
     let myArr = replaceInput1.split(" ");
     for (let i = 0; i < myArr.length; i++) {
       if (myArr[i] === replaceInput2) {
@@ -123,13 +123,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   // Sum All Primes
   buttonEnter("primes-to", "primes-button");
-  let primesButton = document.getElementById("primes-button");
+  const primesButton = document.getElementById("primes-button");
   primesButton.addEventListener('click', function() {
-    let primesTo = document.getElementById("primes-to").value;
-    let primesOutput1 = document.getElementById("primes-output-1");
-    let primesOutput2 = document.getElementById("primes-output-2");
-    let primesOutput1Label = document.getElementById("primes-output-1-label");
-    let primesOutput2Label = document.getElementById("primes-output-2-label");
+    const primesTo = document.getElementById("primes-to").value;
+    const primesOutput1 = document.getElementById("primes-output-1");
+    const primesOutput2 = document.getElementById("primes-output-2");
+    const primesOutput1Label = document.getElementById("primes-output-1-label");
+    const primesOutput2Label = document.getElementById("primes-output-2-label");
 
     let allNums = [1, 2];
     let primes = [2];
@@ -164,6 +164,38 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }));
     primesOutput2Label.className = "label-display";
     primesOutput2.innerHTML = result;
+  });
+
+  // Missing Letters
+  buttonEnter("letters-input", "letters-button");
+  const lettersButton = document.getElementById("letters-button");
+  lettersButton.addEventListener('click', function() {
+    const lettersInput = document.getElementById("letters-input").value;
+    const lettersOutput = document.getElementById("letters-output");
+    const lettersOutputLabel = document.getElementById("letters-output-label");
+
+    let alphabet = "abcdefghijklmnopqrstuvwxyz";
+    let arrAlphabet = alphabet.split("");
+    let myArr = lettersInput.split("");
+    let result;
+
+    if (myArr === arrAlphabet) {
+      return result;
+    } else {
+      // Remove from alphabet all letters leading up to myArr[0]
+      while (arrAlphabet[0] != myArr[0]) {
+        arrAlphabet.shift();
+      }
+      // Loop through the alphabet
+      for (let i = 0; i < arrAlphabet.length; i++) {
+        if (arrAlphabet[i] != myArr[i]) {
+          result = arrAlphabet[i];
+          break
+        }
+      }
+    }
+    lettersOutputLabel.className = "label-display";
+    lettersOutput.innerHTML = result;
   });
 
 });
